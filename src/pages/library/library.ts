@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Quote } from '../../data/quote.interface';
+import quotes from '../../data/quotes';
 
 /**
  * Generated class for the LibraryPage page.
@@ -14,7 +15,7 @@ import { Quote } from '../../data/quote.interface';
   selector: 'page-library',
   templateUrl: 'library.html',
 })
-export class LibraryPage {
+export class LibraryPage implements OnInit {
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
@@ -27,8 +28,7 @@ export class LibraryPage {
 
   ngOnInit(){
     this.quoteCollection = quotes;
-  }
-  ionViewDidLoad() {
+    console.log(this.quoteCollection);
   }
   
 
