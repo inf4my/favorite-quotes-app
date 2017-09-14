@@ -25,7 +25,9 @@
       <ion-grid>
         <ion-row>
           <ion-col col-2 push-7>
-            <button ion-button (click)="addToFavorite(q)">Favorite</button>
+            <button  ion-button (click)="addToFavorite(q)">Favorite</button>
+            <button *ngIf="isFavorite(q)" ion-button (click)="addToFavorite(q)">unFavorite</button>
+            
           </ion-col>
         </ion-row>
       </ion-grid>

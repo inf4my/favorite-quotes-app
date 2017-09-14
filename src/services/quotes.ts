@@ -10,5 +10,13 @@ export class QuotesService{
     removeQuoteFromFacorites(quote: Quote){
     }
     getFavoriteQuotes(){}
-    isFavorite(quote: Quote){}
+    isFavorite(quote: Quote){
+        if(this.favoriteQuotes.find(x => x == quote)){
+            return false
+        }
+        else{
+            return true
+        }
+        // console.log(this.favoriteQuotes.find(x => x == quote))
+    }
 }
