@@ -14,5 +14,21 @@
 
 
 <ion-content padding>
+  <ion-card *ngFor="let q of quote">
+    <ion-card-header>
+      <strong>#{{q.id}}</strong>
+    </ion-card-header>
 
+    <ion-card-content>
+      <p>{{q.text}}</p>
+      <p text-right disabled>-{{q.person}}</p>
+      <ion-grid>
+        <ion-row>
+          <ion-col col-2 push-7>
+            <button ion-button (click)="addToFavorite(q)">Favorite</button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
 </ion-content>

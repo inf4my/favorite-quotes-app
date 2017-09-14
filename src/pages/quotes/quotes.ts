@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { Component, OnInit } from '@angular/core';
+import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
+import { QuotesService } from '../../services/quotes';
 
 /**
  * Generated class for the QuotesPage page.
@@ -13,13 +14,43 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   selector: 'page-quotes',
   templateUrl: 'quotes.html',
 })
-export class QuotesPage {
+export class QuotesPage implements OnInit {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  quote:{
+    id: string,
+    person: string,
+    text: string
+  }[];
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, private quoteService : QuotesService, private alertCtrl: AlertController ) {
   }
 
   ionViewDidLoad() {
     // console.log(this.navParams.data);
   }
+  ngOnInit(){
+     this.quote = this.navParams.data;
+  }
 
+  addToFavorite(text){
+    let alert = this.alertCtrl.create({
+      title: 'Add Quote',
+      subTitle: 'Are you sure you want to ad the quote to favorites?',
+      buttons:[
+        {
+          text:'Ok',
+          handler: ()=>{
+            
+          }
+        },
+        {
+          text: 'Cancel',
+          role: 'cancel'
+        }
+      ]
+      // buttons: ['Dismiss']
+    });
+    alert.present();
+    // console.log(text);
+  }
 }

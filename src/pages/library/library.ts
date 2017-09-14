@@ -32,11 +32,4 @@ export class LibraryPage implements OnInit {
     this.quoteCollection = quotes;
     // console.log(this.quoteCollection);
   }
-
-  openCategory(){
-    this.navCtrl.push(QuotesPage);
-
-  }
-  
-
-  }
+}

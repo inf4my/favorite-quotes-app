@@ -10,6 +10,7 @@ import { LibraryPage } from '../pages/library/library';
 import { TabsPage } from '../pages/tabs/tabs';
 import { FavoritePage } from '../pages/favorite/favorite';
 import { QuotesPage } from '../pages/quotes/quotes';
+import { QuotesService } from '../services/quotes';
 
 
 @NgModule({
@@ -37,6 +38,7 @@ import { QuotesPage } from '../pages/quotes/quotes';
   providers: [
     StatusBar,
     SplashScreen,
+    QuotesService,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
