@@ -15,7 +15,7 @@
 
 <ion-content padding>
   <ion-list>
-    <button ion-item *ngFor="let quote of quoteCollection">
+    <button ion-item *ngFor="let quote of quoteCollection" [navPush]="quotesPage" [navParams]=quote.quotes>
         <ion-icon name="{{quote.icon}}" item-start></ion-icon>
         <h2 text-uppercase>{{quote.category}}</h2>
         <p>{{quote.quotes.length}} quotes</p>
