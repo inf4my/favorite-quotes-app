@@ -21,13 +21,12 @@
 
     <ion-card-content>
       <p>{{q.text}}</p>
-      <p text-right disabled>-{{q.person}}</p>
+      <ion-note text-right>-{{q.person}}</ion-note>
       <ion-grid>
         <ion-row>
           <ion-col col-2 push-7>
-            <button  ion-button (click)="addToFavorite(q)">Favorite</button>
-            <button *ngIf="isFavorite(q)" ion-button (click)="addToFavorite(q)">unFavorite</button>
-            
+            <button *ngIf="quoteService.isFavorite(q)==false" ion-button (click)="addToFavorite(q)">Favorite</button>
+            <button *ngIf="quoteService.isFavorite(q)==true" ion-button (click)="removeFromFavorite(q)">unFavorite</button>
           </ion-col>
         </ion-row>
       </ion-grid>
