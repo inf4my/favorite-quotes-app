@@ -23,7 +23,8 @@ import { SettingsPage } from '../pages/settings/settings';
     TabsPage,
     FavoritePage,
     QuotesPage,
-    QuotePage
+    QuotePage,
+    SettingsPage
   ],
   imports: [
     BrowserModule,
@@ -37,7 +38,8 @@ import { SettingsPage } from '../pages/settings/settings';
     TabsPage,
     FavoritePage,
     QuotesPage,
-    QuotePage
+    QuotePage,
+    SettingsPage
   ],
   providers: [
     StatusBar,

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
+import { IonicPage, AlertController, NavController, NavParams, ModalController } from 'ionic-angular';
 import { QuotesService } from '../../services/quotes';
 import { QuotePage } from '../quote/quote';
 /**
@@ -23,7 +23,7 @@ export class FavoritePage implements OnInit {
     text: string
   }[];
 
-  constructor(private modalCtrl: ModalController, public navCtrl: NavController, public navParams: NavParams, private quoteService : QuotesService) {
+  constructor(private alertCtrl:AlertController, private modalCtrl: ModalController, public navCtrl: NavController, public navParams: NavParams, private quoteService : QuotesService) {
   }
 
   ngOnInit(){
@@ -40,7 +40,26 @@ export class FavoritePage implements OnInit {
   }
 
   removeFromFavorite(q){
-    this.quoteService.removeQuoteFromFavorites(q);
+    let alert = this.alertCtrl.create({
+      title: 'Remove Quote',
+      subTitle: 'Are you sure you want to remove the quote to favorites?',
+      buttons:[
+        {
+          text:'Ok',
+          handler: ()=>{
+            this.quoteService.removeQuoteFromFavorites(q)
+            // console.log(this.quoteService)
+          }
+        },
+        {
+          text: 'Cancel',
+          role: 'cancel'
+        }
+      ]
+      // buttons: ['Dismiss']
+    });
+    alert.present();
+    // this.quoteService.removeQuoteFromFavorites(q);
     // console.log(this.quoteService)
   }
 }
