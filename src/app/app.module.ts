@@ -12,6 +12,7 @@ import { FavoritePage } from '../pages/favorite/favorite';
 import { QuotesPage } from '../pages/quotes/quotes';
 import { QuotesService } from '../services/quotes';
 import { QuotePage } from '../pages/quote/quote';
+import { SettingsPage } from '../pages/settings/settings';
 
 
 @NgModule({
