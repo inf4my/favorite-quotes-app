@@ -10,6 +10,8 @@ import { TabsPage } from '../pages/tabs/tabs';
 })
 export class MyApp {
   rootPage:any = TabsPage;
+  tabsPage = TabsPage;
+  // settingsPage = SettingPage
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
     platform.ready().then(() => {

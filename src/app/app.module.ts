@@ -11,6 +11,7 @@ import { TabsPage } from '../pages/tabs/tabs';
 import { FavoritePage } from '../pages/favorite/favorite';
 import { QuotesPage } from '../pages/quotes/quotes';
 import { QuotesService } from '../services/quotes';
+import { QuotePage } from '../pages/quote/quote';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { QuotesService } from '../services/quotes';
     LibraryPage,
     TabsPage,
     FavoritePage,
-    QuotesPage
+    QuotesPage,
+    QuotePage
   ],
   imports: [
     BrowserModule,
@@ -33,7 +35,8 @@ import { QuotesService } from '../services/quotes';
     LibraryPage,
     TabsPage,
     FavoritePage,
-    QuotesPage
+    QuotesPage,
+    QuotePage
   ],
   providers: [
     StatusBar,

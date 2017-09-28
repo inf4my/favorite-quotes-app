@@ -41,7 +41,7 @@ export class QuotesPage implements OnInit {
           text:'Ok',
           handler: ()=>{
             this.quoteService.addQuoteToFavorites(text)
-            console.log(this.quoteService)
+            // console.log(this.quoteService)
           }
         },
         {
@@ -55,7 +55,8 @@ export class QuotesPage implements OnInit {
     // console.log(text);
   }
 
-  isFavorite(text){
-    this.quoteService.isFavorite(text);
+  removeFromFavorite(q){
+    this.quoteService.removeQuoteFromFavorites(q);
+    // console.log(this.quoteService)
   }
 }

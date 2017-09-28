@@ -7,15 +7,19 @@ export class QuotesService{
         this.favoriteQuotes.push(quote);
     }
 
-    removeQuoteFromFacorites(quote: Quote){
+    removeQuoteFromFavorites(quote: Quote){
+        let idx = this.favoriteQuotes.indexOf(quote);
+        this.favoriteQuotes.splice(idx,1);
     }
-    getFavoriteQuotes(){}
+    getFavoriteQuotes(){
+        return this.favoriteQuotes;
+    }
     isFavorite(quote: Quote){
         if(this.favoriteQuotes.find(x => x == quote)){
-            return false
+            return true
         }
         else{
-            return true
+            return false
         }
         // console.log(this.favoriteQuotes.find(x => x == quote))
     }
