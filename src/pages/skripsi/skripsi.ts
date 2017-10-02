@@ -31,9 +31,7 @@ export class SkripsiPage implements OnInit {
       nama: new FormControl(null, Validators.required),
       nim: new FormControl(null, Validators.required),
       judul: new FormControl(null, Validators.required),
-      classOf: new FormControl(2014, Validators.required)
-    })
-    this.pembimbingForm = new FormGroup({
+      classOf: new FormControl(2014, Validators.required),
       nama1: new FormControl(null, Validators.required),
       nama2: new FormControl(null, Validators.required),
       lintas: new FormControl(null, Validators.required)
