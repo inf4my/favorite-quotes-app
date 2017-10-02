@@ -4,12 +4,14 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { TabsPage } from '../pages/tabs/tabs';
+import { SkripsiPage } from '../pages/skripsi/skripsi';
 import { SettingsPage } from '../pages/settings/settings';
 @Component({
   templateUrl: 'app.html'
 })
 export class MyApp {
-  // rootPage:any = TabsPage;
+  // rootPage:any = SkripsiPage;
+  skripsiPage = SkripsiPage;
   tabsPage = TabsPage;
   settingsPage = SettingsPage
 
@@ -17,6 +19,7 @@ export class MyApp {
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, private menuCtrl: MenuController) {
     platform.ready().then(() => {
+      this.nav.setRoot(this.skripsiPage);
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
       statusBar.styleDefault();

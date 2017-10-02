@@ -12,6 +12,7 @@ import { FavoritePage } from '../pages/favorite/favorite';
 import { QuotesPage } from '../pages/quotes/quotes';
 import { QuotesService } from '../services/quotes';
 import { QuotePage } from '../pages/quote/quote';
+import { SkripsiPage } from '../pages/skripsi/skripsi';
 import { SettingsPage } from '../pages/settings/settings';
 import { SettingsServices } from '../services/settings';
 
@@ -25,7 +26,8 @@ import { SettingsServices } from '../services/settings';
     FavoritePage,
     QuotesPage,
     QuotePage,
-    SettingsPage
+    SettingsPage,
+    SkripsiPage
   ],
   imports: [
     BrowserModule,
@@ -40,7 +42,8 @@ import { SettingsServices } from '../services/settings';
     FavoritePage,
     QuotesPage,
     QuotePage,
-    SettingsPage
+    SettingsPage,
+    SkripsiPage
   ],
   providers: [
     StatusBar,
