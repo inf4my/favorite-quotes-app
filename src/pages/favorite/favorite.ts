@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { IonicPage, AlertController, NavController, NavParams, ModalController } from 'ionic-angular';
 import { QuotesService } from '../../services/quotes';
 import { QuotePage } from '../quote/quote';
+import { SettingsServices } from '../../services/settings';
 /**
  * Generated class for the FavoritePage page.
  *
@@ -23,7 +24,7 @@ export class FavoritePage implements OnInit {
     text: string
   }[];
 
-  constructor(private alertCtrl:AlertController, private modalCtrl: ModalController, public navCtrl: NavController, public navParams: NavParams, private quoteService : QuotesService) {
+  constructor(private settingsSvc: SettingsServices,private alertCtrl:AlertController, private modalCtrl: ModalController, public navCtrl: NavController, public navParams: NavParams, private quoteService : QuotesService) {
   }
 
   ngOnInit(){
@@ -61,5 +62,9 @@ export class FavoritePage implements OnInit {
     alert.present();
     // this.quoteService.removeQuoteFromFavorites(q);
     // console.log(this.quoteService)
+  }
+
+  setBgColor(){
+    return this.settingsSvc.isAltBackground()? 'altQuoteBackground' : 'quoteBackground';
   }
 }

@@ -19,5 +19,10 @@
 
 
 <ion-content padding>
-
+  <ion-list>
+    <ion-item>
+      <ion-label>Alternative Background</ion-label>
+      <ion-toggle (ionChange)="onToggle($event)" [checked]="isChecked()"></ion-toggle>
+    </ion-item>
+  </ion-list>
 </ion-content>
