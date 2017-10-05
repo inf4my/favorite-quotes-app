@@ -1,0 +1,60 @@
+<!--
+  Generated template for the DispPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Detail Informasi</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-card>
+    <ion-card-content>
+      <ion-list text-center>
+        <ion-list-header color="success">DATA DIRI</ion-list-header>
+          <ion-item>
+            <ion-label floating>Nama</ion-label>
+            <ion-input type="text" readonly value={{data.nama}}></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label floating>NIM</ion-label>
+            <ion-input type="text" readonly value={{data.nim}}></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label floating>Angkatan</ion-label>
+            <ion-input type="text" readonly value={{data.classOf}}></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label floating>Judul Skripsi</ion-label>
+            <ion-textarea readonly value={{data.judul}}></ion-textarea>
+          </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-content>
+      <ion-list text-center>
+        <ion-list-header color="success">PEMBIMBING</ion-list-header>
+          <h2 ion-note *ngIf="data.pembimbing[2]==true" float-right style="color:danger">Lintas Prodi</h2>  
+        <ion-item>
+          <ion-label *ngIf="data.pembimbing[1]!=null" floating>Dosen Pembimbing 1</ion-label>
+          <ion-input type="text" readonly value={{data.pembimbing[0]}}></ion-input>
+        </ion-item>
+        <ion-item *ngIf="data.pembimbing[1]!=null">
+          <ion-label floating>Dosen Pembimbing 2</ion-label>
+          <ion-input type="text" readonly value={{data.pembimbing[1]}}></ion-input>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+  <ion-card-content text-center>
+      <button ion-button color="secondary" (click)="closeModal()">OK</button>
+  </ion-card-content>
+</ion-content>

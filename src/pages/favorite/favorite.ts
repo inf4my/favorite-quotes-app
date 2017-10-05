@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { IonicPage, AlertController, NavController, NavParams, ModalController } from 'ionic-angular';
+import { IonicPage, AlertController, NavController, ToastController, NavParams, ModalController } from 'ionic-angular';
 import { QuotesService } from '../../services/quotes';
 import { QuotePage } from '../quote/quote';
 import { SettingsServices } from '../../services/settings';
@@ -24,7 +24,7 @@ export class FavoritePage implements OnInit {
     text: string
   }[];
 
-  constructor(private settingsSvc: SettingsServices,private alertCtrl:AlertController, private modalCtrl: ModalController, public navCtrl: NavController, public navParams: NavParams, private quoteService : QuotesService) {
+  constructor(private toastCtrl:ToastController,private settingsSvc: SettingsServices,private alertCtrl:AlertController, private modalCtrl: ModalController, public navCtrl: NavController, public navParams: NavParams, private quoteService : QuotesService) {
   }
 
   ngOnInit(){
@@ -64,7 +64,54 @@ export class FavoritePage implements OnInit {
     // console.log(this.quoteService)
   }
 
+  addNewQuote(){
+    let alert = this.alertCtrl.create({
+      title: 'Add New Quote',
+      inputs:[
+        {
+          name: 'person',
+        },
+        {
+          name: 'text',
+        }
+      ],
+      buttons:[
+        {
+          text:'Ok',
+          handler: data=>{
+            if( data.person.trim() !=''
+            && data.text.trim() !=''
+            && data.person.trim() != null
+            && data.text.trim() !=null){
+              this.quoteService.addNewQuotes(data)
+              this.presentToast()
+              // console.log(data.person)
+              // console.log(data.text)
+            }
+            // console.log(this.quoteService)
+          }
+        },
+        {
+          text: 'Cancel',
+          role: 'cancel'
+        }
+      ]
+      // buttons: ['Dismiss']
+    });
+    alert.present();
+  }
+
   setBgColor(){
     return this.settingsSvc.isAltBackground()? 'altQuoteBackground' : 'quoteBackground';
+  }
+
+  presentToast(){
+    const toast = this.toastCtrl.create({
+      message:'quote has been added',
+      duration : 2000,
+      position: 'bottom'
+    })
+
+    toast.present()
   }
 }

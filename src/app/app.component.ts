@@ -11,7 +11,6 @@ import { SettingsPage } from '../pages/settings/settings';
 })
 export class MyApp {
   // rootPage:any = SkripsiPage;
-  skripsiPage = SkripsiPage;
   tabsPage = TabsPage;
   settingsPage = SettingsPage
 
@@ -19,7 +18,6 @@ export class MyApp {
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, private menuCtrl: MenuController) {
     platform.ready().then(() => {
-      this.nav.setRoot(this.skripsiPage);
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
       statusBar.styleDefault();

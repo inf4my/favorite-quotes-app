@@ -15,6 +15,7 @@ import { QuotePage } from '../pages/quote/quote';
 import { SkripsiPage } from '../pages/skripsi/skripsi';
 import { SettingsPage } from '../pages/settings/settings';
 import { SettingsServices } from '../services/settings';
+import { DispPage } from '../pages/disp/disp';
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import { SettingsServices } from '../services/settings';
     QuotesPage,
     QuotePage,
     SettingsPage,
-    SkripsiPage
+    SkripsiPage,
+    DispPage
   ],
   imports: [
     BrowserModule,
@@ -43,7 +45,8 @@ import { SettingsServices } from '../services/settings';
     QuotesPage,
     QuotePage,
     SettingsPage,
-    SkripsiPage
+    SkripsiPage,
+    DispPage
   ],
   providers: [
     StatusBar,

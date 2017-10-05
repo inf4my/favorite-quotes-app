@@ -20,45 +20,50 @@
 
 <ion-content padding>
 
-  <form>
+  <form [formGroup]="skripsiForm" (ngSubmit)="onSubmit()">
     <ion-list>
       <ion-item color="primary">
         DATA DIRI
       </ion-item>
       <ion-item>
         <ion-label fixed>Nama</ion-label>
-        <ion-input type="text" placeholder="Nama"></ion-input>
+        <ion-input type="text" placeholder="Nama" formControlName="nama"></ion-input>
       </ion-item>
       <ion-item>
         <ion-label fixed>NIM</ion-label>
-        <ion-input type="text" placeholder="NIM"></ion-input>
+        <ion-input type="text" placeholder="NIM" formControlName="nim"></ion-input>
       </ion-item>
       <ion-item>
         <ion-label fixed>Judul Skripsi</ion-label>
-        <ion-input type="text" placeholder="Judul"></ion-input>
+        <ion-input type="text" placeholder="Judul" formControlName="judul"></ion-input>
       </ion-item>
       <ion-item>
         <ion-label stacked>Class of</ion-label>
-        <ion-select>
+        <ion-select formControlName="classOf">
           <ion-option value="2014" selected>2014</ion-option>
           <ion-option value="2013">2013</ion-option>
         </ion-select>
       </ion-item>
-      <ion-item color="primary">
-        PEMBIMBING
-      </ion-item>
+    </ion-list>
+
+      <ion-list formArrayName="pembimbing">
+      <ion-list-header color="primary">Pembimbing</ion-list-header>
       <ion-item>
         <ion-label fixed>Nama #1</ion-label>
-        <ion-input type="text" placeholder="Pembimbing #1"></ion-input>
+        <ion-input type="text" placeholder="Pembimbing #1" formControlName="0"></ion-input>
       </ion-item>
       <ion-item>
         <ion-label fixed>Nama #2</ion-label>
-        <ion-input type="text" placeholder="Pembimbing #2"></ion-input>
+        <ion-input type="text" placeholder="Pembimbing #2" formControlName="1"></ion-input>
       </ion-item>
       <ion-item>
-        <ion-checkbox>Lintas Prodi</ion-checkbox>
+        <ion-label fixed>Lintas Prodi</ion-label>
+        <ion-checkbox formControlName="2"></ion-checkbox>
       </ion-item>
     </ion-list>
+    
+
+    <button ion-button type="submit" block color="secondary" [disabled]="!skripsiForm.valid">Submit</button>
   </form>
 
 </ion-content>

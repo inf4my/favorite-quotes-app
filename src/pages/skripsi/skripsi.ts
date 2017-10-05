@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { FormGroup, FormControl, Validators, FormArray } from '@angular/forms';
+import { IonicPage, NavController, ModalController, NavParams } from 'ionic-angular';
+import { DispPage } from '../disp/disp';
 
 /**
  * Generated class for the SkripsiPage page.
@@ -16,11 +17,12 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class SkripsiPage implements OnInit {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  dispPage = DispPage;
+
+  constructor(private modalCtrl:ModalController,public navCtrl: NavController, public navParams: NavParams) {
   }
 
   skripsiForm: FormGroup;
-  pembimbingForm: FormGroup;
 
   ngOnInit(){
     this.initializeForm();
@@ -31,15 +33,15 @@ export class SkripsiPage implements OnInit {
       nama: new FormControl(null, Validators.required),
       nim: new FormControl(null, Validators.required),
       judul: new FormControl(null, Validators.required),
-      classOf: new FormControl(2014, Validators.required),
-      nama1: new FormControl(null, Validators.required),
-      nama2: new FormControl(null, Validators.required),
-      lintas: new FormControl(null, Validators.required)
+      classOf: new FormControl("2014", Validators.required),
+      pembimbing: new FormArray([new FormControl(null, Validators.required),new FormControl(null),new FormControl(false)])
     })
   }
 
-  // ionViewDidLoad() {
-  //   console.log('ionViewDidLoad SkripsiPage');
-  // }
+  onSubmit() {
+    //console.log(this.studentForm.value);
+    let modal = this.modalCtrl.create(this.dispPage, this.skripsiForm.value);
+    modal.present();
+  }
 
 }

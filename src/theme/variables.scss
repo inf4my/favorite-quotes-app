@@ -39,9 +39,14 @@ $colors: (
   danger:     #f53d3d,
   light:      #f4f4f4,
   dark:       #222,
+  success:    #32da44,
   quoteBackground: #ffee90,
   altQuoteBackground: #C1FFC1
 );
+
+$success:(
+  color:#32da44
+)
 
 
 // App iOS Variables
