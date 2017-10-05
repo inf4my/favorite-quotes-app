@@ -33,22 +33,39 @@ $app-direction: ltr;
 // colors so you can add, rename and remove colors as needed.
 // The "primary" color is the only required color in the map.
 
+$dark:       #222;
+
 $colors: (
   primary:    #488aff,
   secondary:  #32db64,
   danger:     #f53d3d,
   light:      #f4f4f4,
-  dark:       #222,
   success:    #32da44,
   quoteBackground: #ffee90,
   altQuoteBackground: #C1FFC1
 );
 
-$success:(
-  color:#32da44
-)
+.message{
+  position: top
+}
 
+.success{
+  @extend .message;
+  color :green;
+}
 
+.fail{
+  @extend .message;
+  color :red;
+}
+
+ion-card{
+  width: 320px/ 620px *100%
+}
+
+.sideMenu{
+  color: $dark;
+}
 // App iOS Variables
 // --------------------------------------------------
 // iOS only Sass variables can go here
